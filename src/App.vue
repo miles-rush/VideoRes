@@ -1,32 +1,48 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
+    <a-modal
+      v-model="spSee"
+      title="提示"
+      @ok="spOk()"
+      @cancel="exit()"
+      ok-text="继续访问"
+      cancel-text="关闭"
+    >
+      <div style="text-align: center"></div>
+      <p>未对手机端页面进行优化适配，为了获取最佳的浏览效果，请用PC设备访问!</p>
+    </a-modal>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<script>
+export default {
+  mounted() {
+    if (this._isMobile()) {
+      this.spSee = true;
+    } else {
+    }
+  },
+  data() {
+    return {
+      spSee: false,
+    };
+  },
+  methods: {
+    _isMobile() {
+      let flag = navigator.userAgent.match(
+        /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+      );
+      return flag;
+    },
+    spOk() {
+      this.spSee = false;
+    },
+    exit() {
+      window.opener = null;
+      window.open("", "_self");
+      window.close();
+    },
+  },
+};
+</script>

@@ -7,9 +7,16 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "ant-design-vue": "^1.7.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "less": "^4.1.1",
+    "less-loader": "^5.0.0",
+    "videojs-contrib-hls": "^5.15.0",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0"
+    "vue-jsonp": "^2.0.0",
+    "vue-router": "^3.2.0",
+    "vue-video-player": "^5.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
