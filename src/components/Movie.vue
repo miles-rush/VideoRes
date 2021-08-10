@@ -108,7 +108,7 @@ export default {
       this.id = this.$route.query.code;
 
       const result = await this.$http.get(
-        "http://47.119.124.85:20263/aff/res/info/" + this.id
+        "http://webproxy2.jxhonline.com:20270/aff/res/info/" + this.id
       );
 
       this.video = result.data.info[0].video;

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" style="all">
     <router-view />
     <a-modal
       v-model="spSee"
@@ -46,3 +46,12 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="less">
+.all {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  min-width: 1366px;
+}
+</style>

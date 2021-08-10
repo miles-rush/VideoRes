@@ -199,7 +199,7 @@ export default {
       this.loading = true;
       let that = this;
       const result = await this.$http.get(
-        "http://47.119.124.85:20263/aff/res/list/" + that.key
+        "http://webproxy2.jxhonline.com:20270/aff/res/list/" + that.key
       );
       console.log(result);
       this.data = result.data.info;

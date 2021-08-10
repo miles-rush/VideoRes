@@ -171,6 +171,7 @@ export default {
         defaultPageSize: 14,
       },
       spSee: false,
+      keyNum: 129,
     };
   },
   mounted() {
@@ -187,11 +188,24 @@ export default {
   },
   created() {
     this.search();
+    this.getKey();
   },
   beforeDestroy() {
     document.querySelector("body").removeAttribute("style");
   },
   methods: {
+    getKey() {
+      let aim = 129
+      
+      let s = ''
+      while(aim >= 10) {
+        let temp = Math.floor(Math.random()*10);
+        aim = aim - temp
+        s = s + temp
+      }
+      console.log(s + aim)
+      return s + aim
+    },
     async search() {
       if (this.key === "") {
         this.$message.warning("搜索关键词不能为空!");
@@ -200,9 +214,9 @@ export default {
       this.loading = true;
       let that = this;
       const result = await this.$http.get(
-        "http://47.119.124.85:20263/aff/res/list/" + that.key
+        "http://webproxy2.jxhonline.com:20270/aff/res/list/" + that.key
       );
-      console.log(result);
+      //console.log(result);
       this.data = result.data.info;
       this.loading = false;
     },
